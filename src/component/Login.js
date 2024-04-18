@@ -1,8 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { Header } from './Header'
 import { formvalidate } from '../utils/formvalidate';
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     const  [loginform, setloginform]=useState(true)
     const [formvalidateresult , setformvalidateresult] = useState(null)
     const email = useRef(""); const password = useRef("")
@@ -12,7 +16,41 @@ const Login = () => {
 const formvalidation = () =>{
     // console.log(email.current.value,password.current.value)
     const formvalidatione = formvalidate(email.current.value,password.current.value)
-    setformvalidateresult(formvalidatione)
+    setformvalidateresult(formvalidatione);
+    if(formvalidatione) return;
+    if(loginform){
+        console.log("Sing in form")
+        signInWithEmailAndPassword(auth, email.current.value,password.current.value)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            navigate("/browse")
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setformvalidateresult(errorCode+"--"+errorMessage)
+                    console.log(errorCode+"--"+errorMessage)
+                });
+       
+    }
+    else {
+        console.log("Sing up form")
+        createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+        .then((userCredential) => {
+            // Signed up  
+            const user = userCredential.user;
+                console.log(user)
+                navigate("/")
+             })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setformvalidateresult(errorCode+"--"+errorMessage)
+            console.log(errorCode+"--"+errorMessage)
+             });
+    }
 }
   return (
    <div>
