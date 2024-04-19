@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
     const  [loginform, setloginform]=useState(true)
     const [formvalidateresult , setformvalidateresult] = useState(null)
-    const email = useRef(""); const password = useRef("")
+    const email = useRef(""); const password = useRef(""); const displayName = useRef("");
     const handlesign = () =>{
         setloginform(!loginform)
     }
@@ -37,7 +37,7 @@ const formvalidation = () =>{
     }
     else {
         console.log("Sing up form")
-        createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+        createUserWithEmailAndPassword(auth, email.current.value,password.current.value,displayName.current.value)
         .then((userCredential) => {
             // Signed up  
             const user = userCredential.user;
@@ -59,7 +59,7 @@ const formvalidation = () =>{
     <img  className='absolute' src='https://assets.nflxext.com/ffe/siteui/vlv3/9f46b569-aff7-4975-9b8e-3212e4637f16/453ba2a1-6138-4e3c-9a06-b66f9a2832e4/IN-en-20240415-popsignuptwoweeks-perspective_alpha_website_small.jpg' alt='login background'/>
     <form onSubmit={(e)=>e.preventDefault()} className='absolute p-12 w-[450px] bg-black my-44 ml-[550px]  text-white bg-opacity-70'>
         <h2 className='font-bold text-3xl py-4'>{loginform ? "Sign In" : "Sign Up"}</h2>
-        {!loginform &&    <input type='text' placeholder='Enter your full name' className='p-3  m-2 w-full bg-gray-700 bg-opacity-70'></input>}
+        {!loginform &&    <input type='text' ref={displayName} placeholder='Enter your full name' className='p-3  m-2 w-full bg-gray-700 bg-opacity-70'></input>}
         <input type='text'ref={email} placeholder='Email Address' className='p-3  m-2 w-full bg-gray-700 bg-opacity-70'></input><br></br>
         <input type='password' ref={password} placeholder='Password' className='p-3 m-2 w-full bg-gray-700 bg-opacity-70'></input><br></br>
         <p className='pl-3 py-1 text-red-600  font-bold'>{formvalidateresult}</p>
