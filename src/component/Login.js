@@ -3,13 +3,13 @@ import { Header } from './Header'
 import { formvalidate } from '../utils/formvalidate';
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 
 const Login = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
     const  [loginform, setloginform]=useState(true)
     const [formvalidateresult , setformvalidateresult] = useState(null)
@@ -28,7 +28,7 @@ const formvalidation = () =>{
             // Signed in 
             const user = userCredential.user;
             console.log(user);
-            navigate("/browse")
+            // navigate("/browse")
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -55,7 +55,7 @@ const formvalidation = () =>{
                             }).catch((error) => {
                                 setformvalidateresult(error)
                             });
-                navigate("browse")
+                // navigate("browse")
              })
         .catch((error) => {
             const errorCode = error.code;
