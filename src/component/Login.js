@@ -4,9 +4,13 @@ import { formvalidate } from '../utils/formvalidate';
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+
 
 const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const  [loginform, setloginform]=useState(true)
     const [formvalidateresult , setformvalidateresult] = useState(null)
     const email = useRef(""); const password = useRef(""); const displayName = useRef("");
@@ -14,17 +18,16 @@ const Login = () => {
         setloginform(!loginform)
     }
 const formvalidation = () =>{
-    // console.log(email.current.value,password.current.value)
-    const formvalidatione = formvalidate(email.current.value,password.current.value)
+    const formvalidatione = formvalidate(email.current.value,password.current.value);
     setformvalidateresult(formvalidatione);
     if(formvalidatione) return;
     if(loginform){
-        console.log("Sing in form")
+        // console.log("Sing in form")
         signInWithEmailAndPassword(auth, email.current.value,password.current.value)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
+            console.log(user);
             navigate("/browse")
                 })
                 .catch((error) => {
@@ -36,7 +39,7 @@ const formvalidation = () =>{
        
     }
     else {
-        console.log("Sing up form")
+        // console.log("Sing up form")
         createUserWithEmailAndPassword(auth, email.current.value,password.current.value,displayName.current.value)
         .then((userCredential) => {
             // Signed up  
@@ -46,6 +49,8 @@ const formvalidation = () =>{
                             displayName: displayName.current.value, photoURL: "https://avatars.githubusercontent.com/u/78442057?v=4"
                             }).then(() => {
                                 console.log(user)
+                                const{ uid , email , displayName , photoURL } = user;
+                                dispatch(addUser({uid: uid , email: email , displayName: displayName , photoURL:photoURL}));
                             // ...
                             }).catch((error) => {
                                 setformvalidateresult(error)
