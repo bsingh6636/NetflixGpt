@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Header } from './Header'
 import { formvalidate } from '../utils/formvalidate';
-import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,15 @@ const formvalidation = () =>{
             // Signed up  
             const user = userCredential.user;
                 console.log(user)
-                navigate("/")
+                        updateProfile(auth.currentUser, {
+                            displayName: displayName.current.value, photoURL: "https://avatars.githubusercontent.com/u/78442057?v=4"
+                            }).then(() => {
+                                console.log(user)
+                            // ...
+                            }).catch((error) => {
+                                setformvalidateresult(error)
+                            });
+                navigate("browse")
              })
         .catch((error) => {
             const errorCode = error.code;
