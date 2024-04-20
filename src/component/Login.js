@@ -27,7 +27,7 @@ const formvalidation = () =>{
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user);
+            // console.log(user);
             // navigate("/browse")
                 })
                 .catch((error) => {
@@ -44,7 +44,7 @@ const formvalidation = () =>{
         .then((userCredential) => {
             // Signed up  
             const user = userCredential.user;
-                console.log(user)
+                // console.log(user)
                         updateProfile(auth.currentUser, {
                             displayName: displayName.current.value, photoURL: "https://avatars.githubusercontent.com/u/78442057?v=4"
                             }).then(() => {
