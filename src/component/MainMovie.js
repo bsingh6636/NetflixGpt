@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
+import { useYoutubeid} from '../hooks/usemovieId';
 
 const MainMovie = () => {
   const movies = useSelector((store)=>store.movies.nowplayingmovies)
-  if(movies === null) return ;
-  const MainMovie = movies[0]
-  console.log(MainMovie)
+  if(!movies) return ;
+  const MainMovie = movies[0];
+  console.log(MainMovie.id)
+  
   return (
     <div>
       <div className='py-16 pt-[300px] px-24'>
