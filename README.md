@@ -1,5 +1,6 @@
 #firebase deploy
 firebase deploy , npm run build before that
+firebase deploted - [text](https://nwtflixgpt.web.app)
 
 # Getting Started with Create React App
 
