@@ -11,7 +11,6 @@ const Browse = () => {
       <Header />
       <MainMovie/>
       <SecondaryMovie/>
-      <div>Browse</div>
     </>
   );
 };

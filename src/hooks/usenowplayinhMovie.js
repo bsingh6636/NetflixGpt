@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addnowplayingmovies } from "../utils/movieSlice";
 import { TMDBoptions } from "../utils/Const";
 
-const usenowplayingMovie = () =>{
+const useNowplayingMovie = () =>{
     const dispatch = useDispatch();
     const nowplayingmovie = async () => {
       const data = await fetch(
@@ -18,4 +18,4 @@ const usenowplayingMovie = () =>{
       nowplayingmovie();
     }, []);
 }
-export default usenowplayingMovie;
+export default useNowplayingMovie;

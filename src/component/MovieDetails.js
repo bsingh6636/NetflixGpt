@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useYoutubeid } from "../hooks/usemovieId";
 
 export const MovieDetails = () => {
   const movies = useSelector((store) => store.movies.nowplayingmovies);
