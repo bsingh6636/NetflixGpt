@@ -13,7 +13,6 @@ export const useYoutubeid = (movie_id) => {
     youtubid = youtubide.results.filter((array)=>array.type === "Teaser")
     ytid = youtubid[0].key;
     console.log(youtubid);
-    console.log(youtubid);
   };
 
   useEffect(() => {

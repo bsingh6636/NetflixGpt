@@ -7,18 +7,23 @@ export const MovieDetails = () => {
   const movies = useSelector((store) => store.movies.nowplayingmovies);
 
   if (!movies) return;
-  const MainMovie = movies[0];
-  dispatch(addtrailerid(MainMovie.id))
+  function getRandomNumber(max) {
+    return Math.floor(Math.random() * (max + 1));
+  }
+  const randomnum = getRandomNumber(movies.length); 
+  console.log(randomnum)
+  const MainMovie = movies[3];
+  dispatch(addtrailerid(MainMovie?.id))
   return (
    
-      <div className="py-16 pt-[300px] px-24">
-        <h1 className="font-extrabold text-6xl">{MainMovie.title}</h1>
-        <h3 className="w-1/2">{MainMovie.overview}</h3>
+      <div className="w-screen aspect-video py-16 pt-[20%] px-24 absolute bg-gradient-to-r from-black">
+        <h1 className="font-extrabold text-6xl text-white">{MainMovie.title}</h1>
+        <h3 className="w-1/4 py-6 text-lg text-white">{MainMovie.overview}</h3>
         <div>
-          <button className="bg-slate-400 rounded-xl px-8 py-3 opacity-25">
+          <button className="bg-white rounded-lg p-4 px-12 py-3 text-xl text-black hover:bg-opacity-90">
             ▶️ Play
           </button>
-          <button className="bg-slate-400 rounded-xl px-8 py-3 ">
+          <button className="mx-2 bg-gray-500 rounded-lg p-4 px-12 py-3 text-xl text-white bg-opacity-50">
             &#9432; More Info
           </button>
         </div>
