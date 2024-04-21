@@ -6,13 +6,13 @@ export const useYoutubeid = (movie_id) => {
   
   const movieId = async () => {
     const moviesid = await fetch(
-      `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movie_id}/videos?`,
       TMDBoptions
     );
    const youtubide = await moviesid.json();
     youtubid = youtubide.results.filter((array)=>array.type === "Teaser")
     ytid = youtubid[0].key;
-    console.log(ytid);
+    console.log(youtubid);
     console.log(youtubid);
   };
 

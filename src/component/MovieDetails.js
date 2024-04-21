@@ -1,12 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addtrailerid } from "../utils/movieSlice";
 
 export const MovieDetails = () => {
+  const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies.nowplayingmovies);
 
   if (!movies) return;
   const MainMovie = movies[0];
-  console.log(MainMovie.id);
+  dispatch(addtrailerid(MainMovie.id))
   return (
    
       <div className="py-16 pt-[300px] px-24">
