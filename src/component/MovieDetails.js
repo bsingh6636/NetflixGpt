@@ -7,11 +7,11 @@ export const MovieDetails = () => {
   const movies = useSelector((store) => store.movies.nowplayingmovies);
 
   if (!movies) return;
-  function getRandomNumber(max) {
-    return Math.floor(Math.random() * (max + 1));
-  }
-  const randomnum = getRandomNumber(movies.length); 
-  console.log(randomnum)
+  // function getRandomNumber(max) {
+  //   return Math.floor(Math.random() * (max + 1));
+  // }
+  // const randomnum = getRandomNumber(movies.length); 
+  // console.log(randomnum)
   const MainMovie = movies[3];
   dispatch(addtrailerid(MainMovie?.id))
   return (
