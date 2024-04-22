@@ -11,7 +11,7 @@ const Browse = () => {
   usenowplayingMovie("upcoming",addupcomingmovies);
   usenowplayingMovie("top_rated",addtopratedmovies);
   return (
-    <div className="">
+    <div className=" ">
       <Header />
       <MainMovie/>
       <SecondaryMovie/>
