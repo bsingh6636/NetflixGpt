@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const SecondaryMovie = () => {
    const movie =useSelector((store)=>store.movies)
-  //  console.log(movie)
+    // console.log(movie.topratedmovies)
   return (
     <div className='bg-black z-20 '>
       <div className='-mt-48'>

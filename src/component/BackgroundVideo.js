@@ -6,24 +6,27 @@ export const BackgroundVideo = () => {
   const movie_id = useSelector((store) => store.movies.trailerid);
   const [trailerid, settrailerid] = useState(null);
   const movieId = async () => {
-    const moviesid = await fetch(
-      `https://api.themoviedb.org/3/movie/${movie_id}/videos`,
-      TMDBoptions
-    );
-    const youtubide = await moviesid.json();
-   
-    if (!youtubide.results) return null;
-    const youtubid = youtubide.results.filter(
-      (array) => array.type === "Teaser"
-    );
-   
-     function getRandomNumber(max) {
-      return Math.floor(Math.random() * (max + 1));
+    try{
+      const moviesid = await fetch(
+        `https://api.themoviedb.org/3/movie/${movie_id}/videos`,
+        TMDBoptions
+      );
+      const youtubide = await moviesid.json();
+     
+      if (!youtubide.results) return null;
+      const youtubid = youtubide.results.filter(
+        (array) => array.type === "Teaser"
+      ); //  function getRandomNumber(max) {
+      //   return Math.floor(Math.random() * (max + 1));
+      // }
+      // const randomnum = getRandomNumber(youtubid.length); 
+      //  console.log(randomnum)
+      settrailerid(youtubid.length ? youtubid[0]?.key : youtubide[0]?.key);
+      
     }
-    // const randomnum = getRandomNumber(youtubid.length); 
-    //  console.log(randomnum)
-    settrailerid(youtubid.length ? youtubid[0].key : youtubide[0].key);
-    
+    catch(error){
+      console.log(error)
+    }
   };
   useEffect(() => {
     movieId();

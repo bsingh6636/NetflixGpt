@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase';
 // import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { netflixBG } from '../utils/Const';
 
 
 const Login = () => {
@@ -26,7 +27,7 @@ const formvalidation = () =>{
         signInWithEmailAndPassword(auth, email.current.value,password.current.value)
         .then((userCredential) => {
             // Signed in 
-            const user = userCredential.user;
+            // const user = userCredential.user;
             // console.log(user);
             // navigate("/browse")
                 })
@@ -69,7 +70,7 @@ const formvalidation = () =>{
    <div>
     <Header/>
     <div className='relative'>
-    <img  className='absolute' src='https://assets.nflxext.com/ffe/siteui/vlv3/9f46b569-aff7-4975-9b8e-3212e4637f16/453ba2a1-6138-4e3c-9a06-b66f9a2832e4/IN-en-20240415-popsignuptwoweeks-perspective_alpha_website_small.jpg' alt='login background'/>
+    <img  className='absolute' src={netflixBG} alt='login background'/>
     <form onSubmit={(e)=>e.preventDefault()} className='absolute p-12 w-[450px] bg-black my-44 ml-[550px]  text-white bg-opacity-70'>
         <h2 className='font-bold text-3xl py-4'>{loginform ? "Sign In" : "Sign Up"}</h2>
         {!loginform &&    <input type='text' ref={displayName} placeholder='Enter your full name' className='p-3  m-2 w-full bg-gray-700 bg-opacity-70'></input>}
