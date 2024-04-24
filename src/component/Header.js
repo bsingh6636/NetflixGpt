@@ -58,7 +58,7 @@ export const Header = () => {
             className="bg-purple-900 p-2 rounded-lg h-12 mx-4 from-stone-950 text-white"
             onClick={handleGptbutton}
           >
-            {gptstate ? " GPT Search" : "Home Page"}
+            {gptstate ? "Home Page " : "GPT Search"}
            
           </button>
           <img className="w-12 h-12" alt="User Icon" src={user.photoURL} />
