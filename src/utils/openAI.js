@@ -8,6 +8,6 @@ const openai = new OpenAI({
   export default openai;
 
   const { GoogleGenerativeAI } = require("@google/generative-ai");
-  const  G12OOGLE_API_KEY= 'AIzaSyCPUO9TP5WRH-2e7SDcyzvXPiqWubQLVzk'
+  const  GOOGLE_API_KEY=''+process.env.REACT_APP_GEMINIKEY
 // Access your API key as an environment variable (see "Set up your API key" above)
-export const genAI = new GoogleGenerativeAI(G12OOGLE_API_KEY);
+export const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
