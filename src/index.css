@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Change color of scrollbar for the entire document */
+body::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: black; /* Background color of the track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black; /* Color of the scrollbar handle */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: black; /* Color of the scrollbar handle on hover */
+}
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
