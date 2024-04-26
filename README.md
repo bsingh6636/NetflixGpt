@@ -1,6 +1,8 @@
 #firebase deploy
 firebase deploy , npm run build before that
-firebase deploted - [text](https://nwtflixgpt.web.app)
+firebase deployed -https://nwtflixgpt.web.app
+firebase deployed  - https://nwtflixgpt.web.app/
+vercel deployed- https://netflix-gpt-git-main-bsingh6636s-projects.vercel.app/
 
 # Getting Started with Create React App
 
