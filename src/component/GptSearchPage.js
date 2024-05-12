@@ -54,10 +54,11 @@ const GptSearchPage = () => {
         onSubmit={(e) => e.preventDefault()}
       >
         <input
-          ref={gptsearch}
-          className="bg-white col-span-9 m-4 p-4"
-          placeholder="eg : bollywoord 90's funny"
-        ></input>
+  ref={gptsearch}
+  className="bg-white col-span-9 m-4 p-4 border border-gray-300  rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+  placeholder="eg : bollywoord 90's funny"
+/>
+
         <button
           className="col-span-3 m-4 p-2 bg-red-700 text-white rounded-lg"
           onClick={handlegptsearch}

@@ -37,6 +37,7 @@ const HoverTrailer = ({movieid}) => {
         src={`https://www.youtube.com/embed/${trailerid}?autoplay=1&controls=1&mute=1`}
         title="YouTube video player"
       ></iframe>
+      <h1 className="bg-white">Hellow</h1>
     </div>
   );
 };

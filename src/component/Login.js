@@ -89,6 +89,7 @@ const Login = () => {
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder='Password'
+                            ref={password}
                             className='p-3 m-2 w-full border border-white placeholder-zinc-50  font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
 
                         />
