@@ -1,0 +1,21 @@
+/* Add keyframes for the pulse animation */
+@keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Apply the pulse animation to elements */
+  .animate-pulse {
+    animation: pulse 1.5s infinite;
+  }
+  
+
+  /* styles.css */
+.trailer-message {
+    @apply text-red-500 font-semibold text-center flex items-center justify-center h-full bg-white p-6 rounded-lg shadow-md;
+  }
+  

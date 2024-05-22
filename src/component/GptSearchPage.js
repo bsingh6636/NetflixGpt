@@ -48,25 +48,29 @@ const GptSearchPage = () => {
  };
 
  return (
-    <div className="pt-[15%] flex justify-center">
-      <form
-        className="w-1/2 h-28 bg-black grid grid-cols-12"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <input
-  ref={gptsearch}
-  className="bg-white col-span-9 m-4 p-4 border border-gray-300  rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  placeholder="eg : bollywoord 90's funny"
-/>
+  <div className="pt-[15%] flex flex-col items-center">
+  <span className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 drop-shadow-lg">
+    OpenAI Integrated SearchBar
+  </span>
+  <form
+    className="w-1/2 h-28 bg-black grid grid-cols-12 rounded-lg shadow-lg"
+    onSubmit={(e) => e.preventDefault()}
+  >
+    <input
+      ref={gptsearch}
+      className="bg-white col-span-9 m-4 p-4 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      placeholder="eg : bollywood 90's funny"
+    />
+    <button
+      className="col-span-3 m-4 p-2 bg-red-700 text-white rounded-lg shadow-lg hover:bg-red-600 transition-colors"
+      onClick={handlegptsearch}
+    >
+      Search
+    </button>
+  </form>
+</div>
 
-        <button
-          className="col-span-3 m-4 p-2 bg-red-700 text-white rounded-lg"
-          onClick={handlegptsearch}
-        >
-          Search
-        </button>
-      </form>
-    </div>
+
  );
 };
 

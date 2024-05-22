@@ -3,15 +3,10 @@ import { Header } from './Header'
 import { formvalidate } from '../utils/formvalidate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-// import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { netflixBG } from '../utils/Const';
-
-
-
-
-
+import SmallDeviceMessage from './SmallDeviceMessage';
 
 const Login = () => {
     // const navigate = useNavigate();
@@ -76,6 +71,14 @@ const Login = () => {
                 });
         }
     }
+    
+      function getScreenWidth() {
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      }
+      
+      const size = getScreenWidth(); 
+     if (size<500){return <SmallDeviceMessage/>}
+     else {
     return (
         <div>
             <Header />
@@ -114,7 +117,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
-    )
-}
+    ) }
 
+}
 export default Login
