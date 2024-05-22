@@ -6,7 +6,7 @@ import { getRandomNumber } from "../utils/Const";
 export const MovieDetails = () => {
  const dispatch = useDispatch();
  const movies = useSelector((store) => store.movies.nowplayingmovies);
- const [randomIndex, setRandomIndex] = useState(null);
+ const randomIndex = useState(null);
  const randomIndexRef = useRef(null); // Use a ref to persist the initial randomIndex value
 
  useEffect(() => {
@@ -15,11 +15,11 @@ export const MovieDetails = () => {
       const newRandomIndex = getRandomNumber(movies.length);
       // Set the randomIndex state only if it hasn't been set before
       if (randomIndexRef.current === null) {
-        setRandomIndex(newRandomIndex);
+        // setRandomIndex(newRandomIndex);
         randomIndexRef.current = newRandomIndex; // Update the ref to mark that randomIndex has been set
       }
       const mainMovie = movies[randomIndexRef.current];
-      console.log(randomIndexRef.current);
+      // console.log(randomIndexRef.current);
       // Dispatch the action to add the trailer ID
       dispatch(addtrailerid(mainMovie?.id));
       // console.log(mainMovie);

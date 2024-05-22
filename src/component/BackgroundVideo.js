@@ -27,9 +27,19 @@ export const BackgroundVideo = () => {
         // Call the function with youtubid.length to get a random index
  const randomIndex = getRandomNumberInclusive(youtubid.length);
 
- // Use the random index to get a random trailer
- settrailerid(youtubid.length ? youtubid[randomIndex]?.key : youtubide[0].key);
-      // settrailerid(youtubid.length ? youtubid[2]?.key : youtubide[0].key);
+ let trailerId;
+
+if (youtubid.length && youtubid[randomIndex]?.key) {
+    trailerId = youtubid[randomIndex].key;
+} else if (youtubid.length) {
+    trailerId = youtubid[0].key;
+} else if (youtubide.length) {
+    trailerId = youtubide[0].key;
+} else {
+    trailerId = "1"; 
+}
+
+settrailerid(trailerId);
     } catch (error) {
       console.log(error);
     }

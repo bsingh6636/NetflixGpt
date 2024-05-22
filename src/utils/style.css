@@ -1,0 +1,13 @@
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #ff6b81; /* Unique and attractive color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding some shadow for depth */
+    font-size: 1.5rem; /* Adjust font size as needed */
+  }
+  
+  .subtitle {
+    font-family: 'Poppins', sans-serif;
+    color: #ffc107; /* Another attractive color */
+    font-size: 1.2rem; /* Adjust font size as needed */
+  }
+  
