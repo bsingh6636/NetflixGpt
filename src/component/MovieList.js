@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard'
 
 const MovieList = ({title,movies}) => {
-//    console.log(movies)
+  //  console.log(movies)
 
    if (!movies) return null;
   return (
@@ -13,7 +13,7 @@ const MovieList = ({title,movies}) => {
                <div className='mt-1  flex transition-all overflow-x-auto overflow-y-hidden'>
                 <div className='flex justify-evenly mt-1 '>
                     {
-                        movies.map((data,index)=> <MovieCard key={index} poster_path={data}/>)
+                        movies.map((data,index)=> <MovieCard key={index} moviedetails={data}/>)
                     }
                 </div>
                 
