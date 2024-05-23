@@ -25,7 +25,7 @@ const GptSearchPage = () => {
  const handlegptsearch = async () => {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const prompt =
-      `List of 5 movies separated by commas and enclosed in double quotes: "movie1, movie2,movie3,movie4,movie5" (` +
+      `List of 5 movies names separated by commas and enclosed in double quotes: "movie1, movie2,movie3,movie4,movie5" (` +
       gptsearch.current.value +
       `)`;
     try {

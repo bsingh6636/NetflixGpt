@@ -8,7 +8,6 @@ const HoverTrailer = ({ moviedetails }) => {
   console.log(original_title)
   const [trailerid, settrailerid] = useState(null)
   
-
   useEffect(() => {
 
     const movieId = async () => {
@@ -19,7 +18,7 @@ const HoverTrailer = ({ moviedetails }) => {
           TMDBoptions
         );
         const youtubide = await moviesid.json();
-
+          // console.log(youtubide)
         if (!youtubide.results) return null;
         const youtubid = youtubide.results.filter(
           (video) => video.type === "Trailer" || video.type === "Teaser"

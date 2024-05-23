@@ -19,7 +19,7 @@ export const MovieDetails = () => {
         randomIndexRef.current = newRandomIndex; // Update the ref to mark that randomIndex has been set
       }
       const mainMovie = movies[randomIndexRef.current];
-      console.log(randomIndexRef.current);
+      // console.log(randomIndexRef.current);
       // Dispatch the action to add the trailer ID
       dispatch(addtrailerid(mainMovie?.id));
       // console.log(mainMovie);
